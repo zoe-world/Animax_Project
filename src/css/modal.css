@@ -1,0 +1,286 @@
+.ReactModal__Overlay::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.ReactModal__Overlay::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #217af4; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+
+.ReactModal__Overlay::-webkit-scrollbar-track {
+  background: transparent; /*스크롤바 뒷 배경 색상*/
+}
+.previewModal-player {
+  position: relative;
+  margin: 5vw auto;
+  max-width: 1470px;
+  background: #1f1f1f;
+}
+.previewModal-player .logo_bx {
+  position: absolute;
+  top: -7rem;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  height: min(11rem, 20vw);
+  text-align: center;
+}
+.previewModal-player .logo_bx img {
+  height: 100%;
+  object-fit: contain;
+}
+.previewModal-info_bx {
+  position: relative;
+}
+.previewModal-info {
+  display: flex;
+  padding: 70px;
+}
+.previewModal-info_bx .rank_bx {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #5c5c5c, #333);
+}
+.previewModal-info_bx .rank_bx .rank {
+  font-size: 2rem;
+}
+.previewModal-info_bx .thum_bx {
+  overflow: hidden;
+  width: 300px;
+  min-width: 300px;
+  border-radius: 5px;
+}
+.previewModal-info_bx .txt_bx {
+  padding-left: 2vw;
+  width: 100%;
+}
+.previewModal-info_bx .txt_list > li:not(.desc) {
+  display: flex;
+}
+.previewModal-info_bx .txt_list > li ~ li {
+  margin-top: 8px;
+}
+.previewModal-info_bx .txt_bx .vd_list {
+  display: flex;
+}
+.previewModal-info_bx .txt_bx .vd_list > li {
+  font-family: "Pretendard";
+}
+.previewModal-info_bx .txt_bx .vd_list > li ~ li {
+  position: relative;
+  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+}
+.previewModal-info_bx .txt_bx .vd_list > li ~ li::before {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: inline-block;
+  content: "";
+  width: 2px;
+  height: 15px;
+  background-color: #777;
+}
+.previewModal-info_bx .txt_bx h3.tit {
+  margin-bottom: 2rem;
+  font-size: max(2rem, 1.7vw);
+}
+.previewModal-info_bx .txt_list .tit {
+  padding-right: 1vw;
+  color: #777;
+  font-weight: bold;
+}
+
+.previewModal-info_bx .txt_bx em {
+  font-weight: 400;
+  font-size: 1.5rem;
+  font-family: "Pretendard";
+}
+.previewModal-info_bx .desc em {
+  color: #d5d5d5;
+  font-size: 1.4rem;
+}
+.previewModal-info_bx .txt_list .desc .tit {
+  display: block;
+  margin: 30px 0 10px;
+}
+.previewModal-info_bx .txt_bx .moreBtn {
+  display: flex;
+  margin-top: 1vw;
+  font-size: 1.5rem;
+}
+.previewModal-info_bx .txt_bx .moreBtn .svg-inline--fa {
+  margin-left: 5px;
+}
+
+.previewModal-close {
+  position: fixed;
+  top: 3vw;
+  right: 5vw;
+}
+.previewModal-close .svg-inline--fa {
+  font-size: 2.5vw;
+}
+
+/* tab */
+.previewModal-tab_bx .tab_list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  box-shadow: 0 2px 6px #000;
+}
+.previewModal-tab_bx .tab_list li {
+  flex: 1 1 auto;
+  text-align: center;
+}
+.previewModal-tab_bx .tab_list .active .tab_item {
+  color: #fff;
+  background: linear-gradient(180deg, #4c4c4c 0, #3d3d3d 47%, #292929);
+}
+.previewModal-tab_bx .tab_list .tab_item {
+  padding: 2.6rem 1rem;
+  display: inline-block;
+  width: 100%;
+  color: #b2b2b2;
+  border-left: 1px solid #000;
+  background: linear-gradient(180deg, #363636 0, #252525 50%, #1f1f1f);
+}
+.previewModal-tab_bx .tab_list > li:first-child .tab_item {
+  border-left: none;
+}
+.previewModal-tab_bx .tab_cont {
+  position: relative;
+  margin: 0 7rem;
+  padding: max(3.5vw, 5rem);
+  max-width: 76.5625vw;
+  background-color: #1f1f1f;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+}
+.previewModal-tab_bx .tab_cont .tit {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #636363;
+}
+.previewModal-tab_bx .tab_cont .tit > span {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.previewModal-tab_bx .cast_list {
+  display: flex;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #363636;
+}
+.previewModal-tab_bx .cast_list:first-of-type {
+  padding-top: 0;
+}
+.previewModal-tab_bx .cast_list .thum {
+  display: inline-block;
+  overflow: hidden;
+  min-width: 80px;
+  width: 80px;
+}
+.previewModal-tab_bx .cast_list .thum img {
+  border-radius: 4px;
+}
+.previewModal-tab_bx .cast_list .info {
+  margin-left: 2rem;
+  font-family: "Pretendard";
+}
+.previewModal-tab_bx .cast_list .info .voice {
+  color: #00b8ff;
+  font-size: 1.4rem;
+}
+.previewModal-tab_bx .cast_list .info .desc {
+  margin-top: 1rem;
+  color: #d5d5d5;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+.previewModal-tab_bx .thum_bx {
+  /* padding: 0 10rem; */
+}
+.previewModal-tab_bx .thum_bx .thum_swiper .swiper-slide {
+  cursor: pointer;
+}
+.previewModal-tab_bx .thum_bx .thum_swiper .swiper-slide {
+  filter: grayscale(100%);
+}
+.previewModal-tab_bx
+  .thum_bx
+  .thum_swiper
+  .swiper-slide.swiper-slide-thumb-active {
+  filter: grayscale(0);
+}
+.previewModal-tab_bx .thum_bx .thum_swiper .swiper-slide img {
+  border-radius: 3px;
+}
+.previewModal-tab_bx .thum_bx .gallery_swiper {
+  margin-top: 1rem;
+}
+.previewModal-tab_bx .thum_bx .gallery_swiper .swiper-slide img {
+  width: 100%;
+}
+.previewModal-tab_bx .thum_bx .swiper-button-next,
+.swiper-button-prev {
+  margin-top: 0;
+}
+.previewModal-tab_bx .thum_bx .swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #3d3d3d;
+}
+.previewModal-player .list_v2_wrap {
+  position: relative;
+  padding: 7rem;
+  background-color: #141414;
+}
+.previewModal-player .list_v2_wrap h3 {
+  padding-bottom: 2rem;
+  font-size: 2.5rem;
+  /* font-family: 'GmarketSansBold'; */
+}
+.previewModal-player .list_v2_wrap .tab_btn {
+  margin-left: 0;
+}
+.previewModal-player .list_v2_wrap .tab_btn button + button {
+  margin-left: 0;
+}
+/* video-modal */
+.previewModal-player.video-player {
+  margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .previewModal-player {
+    margin: 15vw auto;
+  }
+  .previewModal-info {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5rem;
+  }
+  .previewModal-info_bx .rank_bx {
+    width: 85px;
+    height: 85px;
+  }
+  .previewModal-info_bx .thum_bx {
+    width: auto;
+    min-width: auto;
+    height: 40vh;
+  }
+  .previewModal-info_bx .thum_bx img {
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
+  .previewModal-info_bx .txt_bx {
+    padding-left: 0;
+    padding-top: 3vw;
+  }
+}

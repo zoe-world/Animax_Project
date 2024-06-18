@@ -1,0 +1,173 @@
+/* 로그인 css */
+.login_form {
+  margin: 100px auto;
+  padding: 40px 0;
+  width: 560px;
+  background-color: #252525;
+  font-family: "Prestandard";
+}
+.login_form h1 {
+  margin: 0 0 30px;
+  text-align: center;
+}
+.join-sns-box,
+.sns-box {
+  padding: 0 40px;
+}
+[class*="sns-box"] h2 {
+  margin-bottom: 30px;
+  color: #a5a5a5;
+  font-size: 2rem;
+  text-align: center;
+}
+.join-sns-box .input_wrap01 li ~ li {
+  margin-top: 10px;
+}
+.join-sns-box input[type="password"].input_style01,
+.join-sns-box input[type="text"].input_style01 {
+  width: 100%;
+  height: 53px;
+  color: #fff;
+  background-color: #2f2f2f;
+  border: 0;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.join-sns-box .checkbox_wrap01 {
+  display: flex;
+  margin: 15px 0 30px;
+  overflow: hidden;
+}
+.join-sns-box .checkbox_wrap01 > li {
+  margin-right: 15px;
+  font-size: 0;
+}
+.join-sns-box .check_style input[type="checkbox"] + label {
+  position: relative;
+  letter-spacing: -0.2px;
+}
+.join-sns-box .check_style input[type="checkbox"] + label:before {
+  content: " ";
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  margin-right: 8px;
+}
+.btn-blue > a {
+  display: block;
+  height: 60px;
+  color: #fff;
+  background: #027fe7;
+  line-height: 60px;
+  border-radius: 30px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+.join-find {
+  margin: 20px auto 50px;
+  font-size: 0;
+  text-align: center;
+}
+.join-find > li {
+  display: inline-block;
+  position: relative;
+  padding-right: 15px;
+  margin-left: 15px;
+}
+.join-find > li > a {
+  display: block;
+  color: #a5a5a5;
+  font-size: 1.4rem;
+}
+.join-find > li::before {
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background-color: #a5a5a5;
+}
+.join-find > li:first-of-type {
+  margin-left: 0;
+}
+.join-find > li:last-of-type {
+  padding-right: 0;
+}
+.join-find > li:last-of-type:before {
+  display: none;
+}
+.sns-box {
+  text-align: center;
+}
+.sns-box h2 {
+  display: inline-block;
+  position: relative;
+  padding: 0 100px;
+}
+.sns-box h2::before,
+.sns-box h2::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  content: "";
+  width: 90px;
+  height: 1px;
+  background-color: #2f2f2f;
+}
+.sns-box h2::before {
+  left: 0;
+}
+.sns-box h2::after {
+  right: 0;
+}
+.login-sns-box {
+  margin: 0 auto 30px;
+}
+.login-sns > li {
+  display: inline-block;
+}
+.icon-sns {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.icon-sns.icon-kakao {
+  background-color: #ffec00;
+  background-image: url(images/login/ico_kakao.png);
+}
+.icon-sns.icon-naver {
+  margin-left: 15px;
+  background-color: #23b909;
+  background-image: url(images/login/ico_naver.png);
+}
+.sns-exclamation {
+  position: relative;
+  padding-left: 15px;
+  color: #717171;
+  text-align: left;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+.sns-exclamation::before {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  content: "*";
+}
+.sns-exclamation span {
+  display: block;
+}
+@media screen and (max-width: 767px) {
+  .login_form {
+    width: 100%;
+    margin: 50px 30px;
+  }
+}

@@ -1,0 +1,10 @@
+/* .thum-list .swiper-slide{
+    transition: all .2s;
+}
+.thum-list .on.swiper-slide{
+    z-index: 1;
+    transform: scale(1.2);
+}
+.thum-list .on.swiper-slide .link_img{
+    margin-bottom: 2vw;
+} */

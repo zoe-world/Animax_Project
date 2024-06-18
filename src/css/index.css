@@ -1,0 +1,5 @@
+/* 애니맥스 PJ 공통핵심 CSS - index.css */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./layout.css);
+
