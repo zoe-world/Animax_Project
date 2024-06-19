@@ -43,8 +43,8 @@ const InfoModal = ({ index, isOpen, onClose }) => {
     onClose();
   };
 
-  const itemInfo = useSelector((state) => state.item.value, shallowEqual);
-  const item = Object.values(itemInfo)[0];
+  const items = useSelector((state) => state.item.value, shallowEqual);
+  const { itemInfo } = Object.values(items)[0];
   const {
     rank,
     tit,
@@ -58,8 +58,7 @@ const InfoModal = ({ index, isOpen, onClose }) => {
     desc,
     logoSrc,
     thumSrc,
-  } = item;
-
+  } = itemInfo;
   /***************************** 
     줄거리 더보기
   *****************************/
@@ -103,7 +102,7 @@ const InfoModal = ({ index, isOpen, onClose }) => {
   const tabItem = ifVodData.find((v) => (v.tit === tit ? v.tit : null));
   const castLength = tabItem.cast.length;
   const stLength = tabItem.still.length;
-  console.log(tabItem);
+
   // video 전체 데이터
   let VodListData = VideoListData;
   VodListData = [...VodListData];

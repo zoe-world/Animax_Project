@@ -100,10 +100,6 @@ export function SwiperVodList({ cat, getMonthDiff, fm, rank, tagItem }) {
   const dispatch = useDispatch();
   const itemInfo = useSelector((state) => state.item.value);
 
-  const handleMouseOut = () => {
-    dispatch(itemOut());
-  };
-
   const handleMouseOver = (e) => {
     e.preventDefault();
     const ele = e.currentTarget;
@@ -129,6 +125,7 @@ export function SwiperVodList({ cat, getMonthDiff, fm, rank, tagItem }) {
       })
     );
   };
+
   // 리턴코드 ////////////////////////////////////
   return (
     <>
@@ -156,15 +153,13 @@ export function SwiperVodList({ cat, getMonthDiff, fm, rank, tagItem }) {
             selData
               .filter((v) => getMonthDiff(fm(myDate), v.newEpi))
               .map((v, i) => (
-                <SwiperSlide key={i}>
-                  <a
-                    href="#"
-                    className="link_img"
-                    onMouseOver={(e) => {
-                      handleMouseOver(e);
-                    }}
-                    onMouseOut={handleMouseOut}
-                  >
+                <SwiperSlide
+                  key={i}
+                  onMouseOver={(e) => {
+                    handleMouseOver(e);
+                  }}
+                >
+                  <a href="#" className="link_img">
                     <div className="img_group">
                       <div className="bg"></div>
                       <img
@@ -187,7 +182,6 @@ export function SwiperVodList({ cat, getMonthDiff, fm, rank, tagItem }) {
                 onMouseOver={(e) => {
                   handleMouseOver(e);
                 }}
-                onMouseOut={handleMouseOut}
               >
                 <a href="#" className="link_img">
                   <div className="img_group">
@@ -213,7 +207,6 @@ export function SwiperVodList({ cat, getMonthDiff, fm, rank, tagItem }) {
                 onMouseOver={(e) => {
                   handleMouseOver(e);
                 }}
-                onMouseOut={handleMouseOut}
               >
                 <a href="#" className="link_img">
                   <div className="img_group">

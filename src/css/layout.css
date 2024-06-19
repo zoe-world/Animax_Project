@@ -527,7 +527,7 @@
 }
 
 .link_img h4 {
-  margin-top: 1rem;
+  padding-top: 1rem;
 }
 .link_img h4 span {
   display: block;
@@ -537,7 +537,7 @@
   font-size: 1.5rem;
 }
 .link_img .txt {
-  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   line-height: 1.3;
   color: #ccc;
   font-size: 1.3rem;
@@ -554,15 +554,16 @@ body {
   left: 0;
   width: 0;
   opacity: 0;
-  transform: scale(1.2);
-  z-index: 10;
+  z-index: 100;
 }
-.vod_area .info_bx {
+.vod_area .img_bx {
   position: relative;
+  width: 100%;
   height: 100%;
 }
+.vod_area .info_bx {
+}
 .vod_area .img_group {
-  position: relative;
   overflow: hidden;
   height: 100%;
   border-radius: 8px;
@@ -577,23 +578,22 @@ body {
   background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.8));
   transition: all 0.4s;
 }
-.vod_area .img_bx {
-  display: inline-block;
-  height: 100%;
-}
 
 .vod_area .img_group img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.vod_area .link_play {
-  z-index: 1;
+.vod_area .util_bx {
   position: absolute;
-  left: 1vw;
-  bottom: 2vw;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+.vod_area .link_play {
   display: block;
-  width: 38px;
+  min-width: 38px;
   height: 38px;
   background: url(images/play2.png) no-repeat;
   transition: 0.25s ease-in-out;
@@ -607,7 +607,6 @@ body {
   background-image: url(images/play2_on.png);
 }
 .vod_area .link_info {
-  z-index: 1;
   position: absolute;
   right: 1vw;
   top: 1vw;
@@ -639,10 +638,10 @@ body {
   background-image: url(images/add_on.png);
 }
 .vod_area [class*="link_ico"]:hover .tootip {
-  opacity: 1;
+  display: block;
 }
 .vod_area .tootip {
-  opacity: 0;
+  display: none;
   position: absolute;
   left: -15px;
   bottom: -30px;
@@ -670,9 +669,6 @@ body {
 }
 
 .vod_area h4 {
-  position: absolute;
-  bottom: 1.8vw;
-  left: 3.4vw;
   padding: 0 1rem;
 }
 .vod_area h4 span {
@@ -683,7 +679,7 @@ body {
   font-size: 1.3rem;
 }
 .vod_area .txt {
-  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   line-height: 1.3;
   color: #ccc;
   font-size: 1.2rem;

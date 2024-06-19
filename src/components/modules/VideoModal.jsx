@@ -1,5 +1,4 @@
 import ReactModal from "react-modal";
-import React, { Fragment, useRef, useState } from "react";
 import { VideoListData } from "../data/video_list";
 import { shallowEqual, useSelector } from "react-redux";
 import "../../css/modal.css";
@@ -10,10 +9,6 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { infoVodData } from "../data/infoVod_list";
-import { Tabs } from "../pages/Tabs";
-import { BestTag } from "../pages/BestTag";
-
-const vData = VideoListData;
 
 const ModalStyle = {
   overlay: {
@@ -46,26 +41,20 @@ const VideoModal = ({ index, isOpen, onClose }) => {
     e.preventDefault();
     onClose();
   };
-  const items = useSelector((state) => state.item.value);
-  const vodBox = useRef();
+  const items = useSelector((state) => state.item.value, shallowEqual);
   const { itemInfo } = Object.values(items)[0];
-  const itemVideoSrc = itemInfo.videoSrc.openSrc;
+  const { videoSrc } = itemInfo;
+
   /*  
     tab-menu
   */
 
   // video 등장인물, 이미지 데이터
-  let ifVodData = infoVodData;
-  ifVodData = [...infoVodData];
+  const ifVodData = [...infoVodData];
 
   // video 전체 데이터
-  let VodListData = VideoListData;
-  VodListData = [...VodListData];
+  const VodListData = [...VodListData];
 
-  const [objInfo, setObjInfo] = useState({});
-  const getInfo = (x) => {
-    setObjInfo(x);
-  };
   // 리턴코드
   return (
     <ReactModal
@@ -83,7 +72,7 @@ const VideoModal = ({ index, isOpen, onClose }) => {
         <div className="previewModal-video_bx">
           <div className="previewModal-video">
             <video
-              src={itemVideoSrc.openSrc}
+              src={videoSrc.openSrc}
               style={{ width: "100%" }}
               controls
               autoPlay

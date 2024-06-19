@@ -1,39 +1,48 @@
 // Animax VOD 정보 컴포넌트
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+import useModals from "./useModals";
+import { modals } from "./Modals";
 
-export function Vod({ onClickVodHandler, onClickVideoHandler }) {
+export function Vod() {
   const items = useSelector((state) => state.item.value);
   const vodBox = useRef();
   const { isSelected, eleW, ele, top, left, itemInfo } =
     Object.values(items)[0];
   const itemsThumnail = itemInfo.thumSrc;
-  const itemsVideo = itemInfo.videoSrc;
+
   const itemsTit = itemInfo.tit;
   const itemsEpiTit = itemInfo.epiTit;
-  const [isAct, setIsAct] = useState(false);
+  const [isAct, setIsAct] = useState(isSelected);
 
-  const handleMouseEnter = (e) => {
-    console.log(e.currentTarget);
-    setIsAct(isSelected);
-  };
-
-  const handleMouseLeave = () => {
-    setIsAct(isSelected);
+  const handleMouseOut = () => {
+    setIsAct(false);
   };
 
   useEffect(() => {
-    if (ele) {
-      ele.addEventListener("mouseenter", handleMouseEnter);
-      vodBox.current.removeEventListener("mouseleave", handleMouseLeave);
+    if (!ele) return;
+    setIsAct(isSelected);
+
+    if (vodBox.current) {
+      vodBox.current.addEventListener("mouseout", handleMouseOut);
     }
 
     return () => {
-      if (ele) {
-        vodBox.current.removeEventListener("mouseenter", handleMouseLeave);
+      if (vodBox.current) {
+        vodBox.current.removeEventListener("mouseout", handleMouseOut);
       }
     };
-  }, [items, ele]);
+  }, [items, vodBox]);
+
+  const { openModal } = useModals();
+  const onClickVodHandler = (e) => {
+    e.preventDefault();
+    openModal(modals.infoModal, {});
+  };
+  const onClickVideoHandler = (e) => {
+    e.preventDefault();
+    openModal(modals.videoModal, {});
+  };
 
   return (
     <>
@@ -44,21 +53,37 @@ export function Vod({ onClickVodHandler, onClickVideoHandler }) {
         ref={vodBox}
         style={{
           opacity: isAct ? 1 : 0,
-          top: isAct ? top + 25 + "px" : "auto",
-          left: isAct ? left + "px" : "auto",
-          width: isAct ? eleW + "px" : "auto",
-          transition: "opacity .3s linear .2s",
+          top: isAct ? top + 25 + "px" : "0",
+          left: isAct ? left + "px" : "0",
+          width: isAct ? eleW + "px" : "0",
+          transform: isAct ? "scale(1.2)" : "scale(1)",
+          transition: " opacity 0.3s cubic-bezier(0.4, 0, 1, 1) 0.2s",
         }}
       >
         <div className="info_bx">
-          <a
-            href="#"
-            title="동영상 재생"
-            className="link_play link_ico"
-            onClick={onClickVideoHandler}
-          >
-            <span className="tootip">재생하기</span>
-          </a>
+          <div className="img_bx">
+            <a href="#" onClick={onClickVodHandler}>
+              <div className="img_group">
+                <img src={itemsThumnail} alt="" />
+                <div className="bg"></div>
+              </div>
+            </a>
+            <div className="util_bx">
+              <a
+                href="#"
+                title="동영상 재생"
+                className="link_play link_ico"
+                onClick={onClickVideoHandler}
+              >
+                <span className="tootip">재생하기</span>
+              </a>
+              <h4>
+                <span className="tit">{itemsTit}</span>
+                <span className="txt">{itemsEpiTit}</span>
+              </h4>
+            </div>
+          </div>
+
           <a
             href="#"
             title="정보 더보기"
@@ -69,17 +94,6 @@ export function Vod({ onClickVodHandler, onClickVideoHandler }) {
           </a>
           <a href="#" title="찜하기" className="link_zzim link_ico">
             <span className="tootip">찜하기</span>
-          </a>
-          <a href="#" className="img_bx" onClick={onClickVodHandler}>
-            {}
-            <div className="img_group">
-              <div className="bg"></div>
-              <img src={itemsThumnail} alt="" />
-            </div>
-            <h4>
-              <span className="tit">{itemsTit}</span>
-              <span className="txt">{itemsEpiTit}</span>
-            </h4>
           </a>
         </div>
       </section>

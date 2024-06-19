@@ -2,18 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { SwiperVodList } from "../plugin/SwiperVodList";
+import { VideoListData } from "../data/video_list";
 import { BestTagBtn } from "./BestTagBtn";
 
 // 배너데이터
-export function BestTag({ cat, item, VodListData }) {
+export function BestTag({ cat, item }) {
   // cat = 카테고리명
   // tagItem = 베스트태그 아이템 상태변수
 
   // bestTag 데이터
-  const newVodListData = [...VodListData];
+  const newVodListData = [...VideoListData];
 
   // 해시태그 버튼 텍스트 추출용
-  const [tagBtn, setTagBtn] = useState(VodListData);
+  const [tagBtn, setTagBtn] = useState(newVodListData);
 
   // 해시태크 배열데이터값에서 추출
   const tag = tagBtn.map((v) => v.hashtag?.[0]);
@@ -37,7 +38,7 @@ export function BestTag({ cat, item, VodListData }) {
     newTotal.sort((a, b) => a.idx - b.idx);
     setTagItem(newTotal);
     if (filter == "전체") {
-      setTagItem(VodListData);
+      setTagItem(VideoListData);
     }
   };
 

@@ -1,21 +1,25 @@
 // Animax 추천 TV프로그램 컴포넌트
 
+import { modals } from "components/modules/Modals";
+import useModals from "components/modules/useModals";
+import { VideoListData } from "../data/video_list";
+import { infoVodData } from "../data/infoVod_list";
 import { Fragment, useMemo, useRef, useState } from "react";
 
-export function GoodVod({ VodListData, ifVodData, onClickVodHandler, onClickVideoHandler }) {
-  let goodItemData = [...VodListData];
-  let goodItemInfoData = [...ifVodData];
+export function GoodVod({ VodListData, ifVodData }) {
+  let goodItemData = [...VideoListData];
+  let goodItemInfoData = [...infoVodData];
   goodItemData.sort((x, y) => {
     let a = Number(x.idx);
     let b = Number(y.idx);
     return a === b ? 0 : a > b ? 1 : -1;
   });
-  
+
   // 에피소드 회차수 미공개 제외 && 1화 이상인 아이템
   const epi = goodItemData.filter((v) =>
     v.epiNum !== "미공개" && v.epiNum > 1 ? v : null
   );
-  
+
   // 위에 필터링된 아이템 제목
   const epiTxt = epi.map((v) => v.tit);
   // 등장인물 데이터 중 제목
@@ -25,8 +29,8 @@ export function GoodVod({ VodListData, ifVodData, onClickVodHandler, onClickVide
   // epi 배열수 기준으로 랜덤수 만들기
   const random = useMemo(() => Math.ceil(Math.random() * epi.length - 1), []);
   // 회차가 미공개 제외, 1화 이상인 아이템 중 랜덤으로 나오는 객체 중 연령제한나이
-  const age = epi[random]?.['age'];
-  
+  const age = epi[random]?.["age"];
+
   // 연령체크
   const ageChk = {
     all: <em className="age_badge bd-all">all</em>,
@@ -53,7 +57,7 @@ export function GoodVod({ VodListData, ifVodData, onClickVodHandler, onClickVide
   const [isShowMore, setIsShowMore] = useState(false);
 
   // 공백제거
-  let trimTxt = epi[random]?.desc.split("^").map((v,i) => {
+  let trimTxt = epi[random]?.desc.split("^").map((v, i) => {
     return (
       <Fragment key={i}>
         {v}
@@ -67,8 +71,8 @@ export function GoodVod({ VodListData, ifVodData, onClickVodHandler, onClickVide
   // 조건에 따라 줄거리를 보여주는 함수
   const commenter = () => {
     // 원본에서 글자수 만큼 자른 짧은 버전
-    let shortReview = (trimTxt||"").slice(0, textLimit.current);
-    if ((trimTxt||"").length > textLimit.current) {
+    let shortReview = (trimTxt || "").slice(0, textLimit.current);
+    if ((trimTxt || "").length > textLimit.current) {
       return shortReview;
     }
     return trimTxt;
@@ -77,8 +81,12 @@ export function GoodVod({ VodListData, ifVodData, onClickVodHandler, onClickVide
 
   // 랜덤으로 뜨는 에피소드 지금 감상하기 버튼
   const epiRandom = useRef(epi[random]);
-
-// console.log(interaction, epiRandom)
+  console.log(epiRandom);
+  const { openModal } = useModals();
+  const onClickVodHandler = (e) => {
+    e.preventDefault();
+    openModal(modals.infoModal, {});
+  };
 
   return (
     <article className="good_wrap">
@@ -100,7 +108,11 @@ export function GoodVod({ VodListData, ifVodData, onClickVodHandler, onClickVide
               </ul>
               <p className="txt">{commenter()}</p>
               <span className="btn_wrap">
-                <a href="#" className="btn play_btn" onClick={onClickVodHandler}>
+                <a
+                  href="#"
+                  className="btn play_btn"
+                  onClick={onClickVodHandler}
+                >
                   <span className="txt">지금 감상하기</span>
                 </a>
                 <a href="#" className="btn info_btn">

@@ -18,10 +18,15 @@ export const itemSlice = createSlice({
   initialState: { value: initialStateValue },
   reducers: {
     itemOver: (state, action) => {
-      state.value = { ...state.value, itemInfo: action.payload };
+      state.value = {
+        ...state.value,
+        itemInfo: action.payload,
+      };
     },
-    itemOut: (state) => {
-      state.value = initialStateValue;
+    itemOut: (state, action) => {
+      state.value = {
+        initialStateValue,
+      };
     },
   },
 });
