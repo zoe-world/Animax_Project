@@ -6,7 +6,7 @@ import { VideoListData } from "../data/video_list";
 import { infoVodData } from "../data/infoVod_list";
 import { Fragment, useMemo, useRef, useState } from "react";
 
-export function GoodVod({ VodListData, ifVodData }) {
+export function GoodVod() {
   let goodItemData = [...VideoListData];
   let goodItemInfoData = [...infoVodData];
   goodItemData.sort((x, y) => {

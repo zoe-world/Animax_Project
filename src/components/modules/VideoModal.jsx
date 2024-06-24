@@ -49,11 +49,10 @@ const VideoModal = ({ index, isOpen, onClose }) => {
     tab-menu
   */
 
-  // video 등장인물, 이미지 데이터
-  const ifVodData = [...infoVodData];
-
-  // video 전체 데이터
-  const VodListData = [...VodListData];
+    // // video 등장인물, 이미지 데이터
+    // const ifVodData = [...infoVodData];
+    // // video 전체 데이터
+    // const VodListData = [...VideoListData];
 
   // 리턴코드
   return (

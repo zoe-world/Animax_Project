@@ -98,7 +98,7 @@ export function SwiperVodList({ cat, getMonthDiff, fm, rank, tagItem }) {
 
   // 마우스오버 상태변수
   const dispatch = useDispatch();
-  const itemInfo = useSelector((state) => state.item.value);
+  // const itemInfo = useSelector((state) => state.item.value);
 
   const handleMouseOver = (e) => {
     e.preventDefault();

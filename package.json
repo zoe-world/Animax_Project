@@ -1,6 +1,6 @@
 {
   "proxy": "https://zoe-world.github.io/",
-  "homepage": "https://zoe-world.github.io/",
+  "homepage": "https://zoe-world.github.io/Animax_Project/",
   "name": "animax-app",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "firebase": "^10.9.0",
+    "gh-pages": "^6.1.1",
     "jquery": "^3.7.1",
     "jquery-ui-dist": "^1.13.2",
     "jquery-ui-touch-punch": "^0.2.3",
@@ -38,7 +39,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

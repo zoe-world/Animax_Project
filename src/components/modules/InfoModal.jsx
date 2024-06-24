@@ -95,17 +95,14 @@ const InfoModal = ({ index, isOpen, onClose }) => {
   */
 
   // video 등장인물, 이미지 데이터
-  let ifVodData = infoVodData;
-  ifVodData = [...infoVodData];
+  let ifVodData = [...infoVodData];
+  // video 전체 데이터
+  let VodListData = [...VideoListData];
 
   // tab 컨텐츠
   const tabItem = ifVodData.find((v) => (v.tit === tit ? v.tit : null));
   const castLength = tabItem.cast.length;
   const stLength = tabItem.still.length;
-
-  // video 전체 데이터
-  let VodListData = VideoListData;
-  VodListData = [...VodListData];
 
   // 리턴코드
   return (

@@ -15,15 +15,12 @@ export function Best({ cat, item }) {
   });
   rank = rank.slice(0, 10);
 
-  const getItem = (x) => {
-    item(x);
-  };
   return (
     <>
       <article className="list_v2_wrap rank">
         <h3>인기 작품</h3>
         {/* 1. 스와이퍼 컴포넌트 */}
-        <SwiperVodList cat={cat} rank={rank} item={getItem} />
+        <SwiperVodList cat={cat} rank={rank} />
       </article>
     </>
   );
